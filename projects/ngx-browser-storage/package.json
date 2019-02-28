@@ -1,0 +1,25 @@
+{
+  "name": "@browser-storage/ngx-browser-storage",
+  "version": "0.0.1-alpha.16",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "@browser-storage/core": "0.0.1-alpha.16",
+    "@browser-storage/typings": "0.0.1-alpha.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/browser-storage/ngx-browser-storage.git"
+  },
+  "keywords": [
+    "browser",
+    "storage",
+    "async"
+  ],
+  "author": "Igor Katsuba <katsuba.igor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/browser-storage/ngx-browser-storage/issues"
+  },
+  "homepage": "https://github.com/browser-storage/ngx-browser-storage#readme"
+}

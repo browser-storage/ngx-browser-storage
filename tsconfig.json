@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@browser-storage/ngx-browser-storage": [
+        "dist/ngx-browser-storage"
+      ],
+      "@browser-storage/ngx-browser-storage/*": [
+        "dist/ngx-browser-storage/*"
+      ]
+    }
   }
 }

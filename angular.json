@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "ngx-browser-storage": {
+      "root": "projects/ngx-browser-storage",
+      "sourceRoot": "projects/ngx-browser-storage/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-browser-storage/tsconfig.lib.json",
+            "project": "projects/ngx-browser-storage/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-browser-storage/src/test.ts",
+            "tsConfig": "projects/ngx-browser-storage/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-browser-storage/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-browser-storage/tsconfig.lib.json",
+              "projects/ngx-browser-storage/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-browser-storage-demo"
