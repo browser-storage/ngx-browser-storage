@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { defer, Observable } from 'rxjs';
-import { BrowserStorage } from '@browser-storage/core';
+import { defer, Observable, Subscriber } from 'rxjs';
+import { BrowserStorage, BrowserStorageEvent } from '@browser-storage/core';
 import { BrowserStorageOptions } from '@browser-storage/typings';
 import { BROWSER_STORAGE_CONFIG } from './ngx-browser-storage.tokens';
 
@@ -56,5 +56,20 @@ export class NgxBrowserStorageService {
 
   public setItem<T>(key: string, item: T): Observable<T> {
     return defer<T>(() => this.storage.setItem<T>(key, item));
+  }
+
+  public observe<T>(key: string): Observable<BrowserStorageEvent<T>> {
+    return Observable.create((subscriber: Subscriber<BrowserStorageEvent<T>>) => {
+      const listener = this.storage.addEventListener((event: BrowserStorageEvent<T>) => {
+        if (key === event.key) {
+          subscriber.next(event);
+        }
+      });
+
+      return () => {
+        subscriber.unsubscribe();
+        listener();
+      };
+    });
   }
 }
